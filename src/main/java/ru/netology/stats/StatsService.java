@@ -13,11 +13,9 @@ public class StatsService {
         }
 
         public long findMean(long[] sales) {
-            long sum = 0;
-            for (long sale : sales) {
-                sum = sum + sale;
 
-            }
+            StatisticsService service = new StatisticsService();
+            long sum = service.calculateSum(sales);
 
             long mean = sum / 12;
 
@@ -57,13 +55,10 @@ public class StatsService {
         }
 
         public long findUpperMean(long[] sales) {
-            long sum = 0;
-            for (long sale : sales) {
-                sum = sum + sale;
 
-            }
+            StatisticsService service = new StatisticsService();
+            long mean = service.findMean(sales);
 
-            long mean = sum / 12;
             long month = 0;
             for (long sale : sales) {
                 if (mean < sale) {
@@ -76,13 +71,10 @@ public class StatsService {
         }
 
         public long findUnderMean(long[] sales) {
-            long sum = 0;
-            for (long sale : sales) {
-                sum = sum + sale;
 
-            }
+            StatisticsService service = new StatisticsService();
+            long mean = service.findMean(sales);
 
-            long mean = sum / 12;
             long month = 0;
             for (long sale : sales) {
                 if (mean > sale) {
